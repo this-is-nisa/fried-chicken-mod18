@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "all": "friedchickenmod:block/flower_block"
+  }
+}
