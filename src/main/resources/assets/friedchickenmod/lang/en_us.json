@@ -1,6 +1,9 @@
 {
   "item.friedchickenmod.fried_chicken": "Fried Chicken",
-  "block.friedchickenmod.flower_block": "Fried Flower"
+  "block.friedchickenmod.chicken_flower": "Chicken Flower",
+  "block.friedchickenmod.potted_chicken_flower": "Potted Chicken Flower",
+  "item.friedchickenmod.friedchicken_seeds": "Chicken Seeds",
+  "block.friedchickenmod.friedchickenplant": "Fried Chicken Plant"
 
 
 }

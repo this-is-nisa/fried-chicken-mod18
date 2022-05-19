@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "friedchickenmod:block/chicken_flower"
+  }
+}

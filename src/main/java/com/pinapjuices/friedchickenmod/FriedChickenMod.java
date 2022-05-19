@@ -4,6 +4,7 @@ import com.pinapjuices.friedchickenmod.item.ModItems;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -30,12 +31,17 @@ public class FriedChickenMod
         ModItems.register(eventBus);
         ModBlocks.register(eventBus);
 
+        eventBus.addListener(this::setup);
+        eventBus.addListener(this::setupClient);
+
+        // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
     }
 
     private void setupClient(final FMLClientSetupEvent event) {
 
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.FLOWER.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.CHICKEN_FLOWER.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.FRIEDCHICKENPLANT.get(), RenderType.cutout());
     }
 
     private void setup(final FMLCommonSetupEvent event)
@@ -43,6 +49,10 @@ public class FriedChickenMod
         // some preinit code
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+
+        event.enqueueWork(() -> {
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.CHICKEN_FLOWER.getId(), ModBlocks.POTTED_CHICKEN_FLOWER);
+        });
     }
 
 

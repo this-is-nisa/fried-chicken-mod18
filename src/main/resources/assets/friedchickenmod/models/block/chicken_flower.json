@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "friedchickenmod:block/chicken_flower"
+  }
+}
