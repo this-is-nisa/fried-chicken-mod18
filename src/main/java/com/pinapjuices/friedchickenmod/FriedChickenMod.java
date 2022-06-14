@@ -14,6 +14,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import static com.pinapjuices.friedchickenmod.block.ModBlocks.POTTED_CHICKEN_FLOWER;
+
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(FriedChickenMod.MOD_ID)
 public class FriedChickenMod
@@ -42,6 +44,7 @@ public class FriedChickenMod
 
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.CHICKEN_FLOWER.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.FRIEDCHICKENPLANT.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.POTTED_CHICKEN_FLOWER.get(), RenderType.cutout());  // always have a cutout for a plant/flower
     }
 
     private void setup(final FMLCommonSetupEvent event)
@@ -50,8 +53,9 @@ public class FriedChickenMod
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
 
+
         event.enqueueWork(() -> {
-            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.CHICKEN_FLOWER.getId(), ModBlocks.POTTED_CHICKEN_FLOWER);
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.CHICKEN_FLOWER.getId(), POTTED_CHICKEN_FLOWER);
         });
     }
 
